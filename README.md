@@ -1,12 +1,4 @@
-# vue-learn
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
+# Learn-Vue
 
 See [Vite Configuration Reference](https://vite.dev/config/).
 
@@ -27,4 +19,4 @@ npm run dev
 ```sh
 npm run build
 ```
-# Learn-Vue
+

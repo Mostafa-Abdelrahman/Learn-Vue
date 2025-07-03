@@ -7,5 +7,5 @@ import JobList from '@/components/JobList.vue'
 <template>
     <Hero title="Welcome To a Dev Jobs" description="Find the  job that fits your skills and needs"/>
     <HomeCard />
-     <JobList :limit="3"/>
+     <JobList :limit="3" :showMore="true"/>
 </template>

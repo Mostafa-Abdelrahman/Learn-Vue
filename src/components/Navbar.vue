@@ -1,5 +1,11 @@
 <script setup>
     import logo from '@/assets/logo.png'
+    import {RouterLink, useRoute} from 'vue-router'
+
+    const isActive=(path)=>{
+      const router=useRoute()
+      return path === router.path
+    }
 </script>
 
 <template>
@@ -18,21 +24,19 @@
             </a>
             <div class="md:ml-auto">
               <div class="flex space-x-2">
-                <a
-                  href="/"
-                  class="text-white bg-green-900 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  >Home</a
-                >
-                <a
-                  href="/jobs"
-                  class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2"
-                  >Jobs</a
-                >
-                <a
-                  href="/add-job"
-                  class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2"
-                  >Add Job</a
-                >
+                <RouterLink
+                to="/"
+                  :class="[isActive('/')?'bg-green-900':'hover:bg-green-900 ','text-white','rounded-md','px-3','py-2']"
+                >Home</RouterLink>
+                  
+                <RouterLink
+                to="/jobs"
+                :class="[isActive('/jobs')?'bg-green-900':'hover:bg-green-900 ','text-white','rounded-md','px-3','py-2']"
+                >Jobs</RouterLink>  
+                <RouterLink
+                  to="/add-job"
+                  :class="[isActive('/add-job')?'bg-green-900':'hover:bg-green-900 ','text-white','rounded-md','px-3','py-2']"
+                 >Add Job</RouterLink>
               </div>
             </div>
           </div>

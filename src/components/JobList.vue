@@ -2,13 +2,14 @@
 import {ref,defineProps} from 'vue'
 import jobData from '@/jobs.json'
 import JobCardList from './JobCardList.vue'
+import { RouterLink } from 'vue-router'
 
 const jobs=ref(jobData.jobs)
 const props=defineProps({
     limit:Number,
     showMore:{
         type:Boolean,
-        default:true
+        default:false
     }
 })
 
@@ -24,10 +25,9 @@ const props=defineProps({
         </div>
     </section>
     <section v-if="showMore" class="m-auto max-w-lg my-10 px-6">
-      <a
-        href="/jobs"
+      <RouterLink
+        to="/jobs"
         class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >View All Jobs</a
-      >
+        >View All Jobs</RouterLink>
     </section>
 </template>

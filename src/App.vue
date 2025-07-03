@@ -1,8 +1,8 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
-import Hero from './components/Hero.vue'
+import {RouterView} from 'vue-router'
 </script>
 <template>
   <Navbar />
-  <Hero title="Welcome To a Dev Jobs" description="Find the  job that fits your skills and needs"/>
+  <RouterView />
 </template>

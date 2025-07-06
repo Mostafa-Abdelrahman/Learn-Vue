@@ -1,10 +1,21 @@
 <script setup>
-import {reactive} from 'vue'
+import {reactive,onMounted} from 'vue'
 import axios from 'axios'
 import router from '@/router'
+import {useRoute} from 'vue-router'
+
+const route=useRoute()
+const jobID=route.params.id
+
+const state=reactive({
+    job:{},
+    isLoading:true
+})
+
+
 
 const formData=reactive({
-  type:'Full-Time',
+  type:'',
   title:'',
   description:'',
   salary:'',
@@ -17,9 +28,21 @@ const formData=reactive({
   }
 })
 
+onMounted(async()=>{
+    try{
+        const response=await axios.get(`/api/jobs/${jobID}`)
+        state.job=response.data
+        Object.assign(formData,state.job)
+    }catch(error){
+        console.error('Error fetching job:',error)
+    }finally{
+        state.isLoading=false
+    }
+})
+
 const handleSubmit=async()=>{
     try{
-        const response=await axios.post('/api/jobs',formData)
+        const response=await axios.put(`/api/jobs/${jobID}`,formData)
         console.log(response.data)
         router.push(`/jobs/${response.data.id}`)
     }catch(error){
@@ -193,7 +216,7 @@ const handleSubmit=async()=>{
                 class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                 type="submit"
               >
-                Add Job
+                Update Job
               </button>
             </div>
           </form>

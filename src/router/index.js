@@ -5,7 +5,6 @@ import AddJobView from '@/views/AddJobView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import JobCardView from '@/views/jobCardView.vue'
 import EditJobView from '@/views/EditJobView.vue'
-console.log("fuck")
 const router=createRouter({
     history:createWebHistory(import.meta.env.BASE_URL),
     routes:[
